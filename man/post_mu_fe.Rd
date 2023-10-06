@@ -18,7 +18,7 @@ post_mu_fe(df, mu.mean = 0, mu.sd = 4)
 \arguments{
   \item{df}{
   data frame with one column "y" containing the (transformed) effect estimates for the individual studies and
-    one column "sigma" containing the standard errors of these estimates. 
+    one column "sigma" containing the standard errors of these estimates.
 }
 \item{mu.mean}{
    mean of the normal prior for the overall mean parameter mu. Defaults to 0.
@@ -44,15 +44,16 @@ are suitable for effects mu on the log odds (ratio) scale (Roever, 2020).
 A list with two elements: the first element "mean" and the second element "sd", which refer to the mean and the standard deviation of the normal posterior of mu.
 }
 \references{
-Ott, M., Plummer, M., Roos, M. How vague is vague? How informative is
-informative? Reference analysis for
-Bayesian meta-analysis. Manuscript revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). How vague is vague?
+How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine} \bold{40}, 4505--4521.
+\doi{10.1002/sim.9076}
 
 Roever C. Bayesian random-effects meta-analysis using the bayesmeta R package (2020). \emph{Journal of Statistical Software} \bold{93(6)}, 1--51.
 }
 
 \examples{
-# load the aurigular acupuncture (AA) data set 
+# load the aurigular acupuncture (AA) data set
 data(aa)
 # normal prior for log odds ratios suggested by Roever (2020)
 post_mu_fe(df=aa, mu.mean=0, mu.sd=4)

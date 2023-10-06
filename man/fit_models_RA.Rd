@@ -9,10 +9,10 @@ Posterior inference for benchmark and actual heterogeneity priors
 \description{
 Computes the posterior distribution of the
 parameters in a random-effects meta-analysis (expressed
-as a normal-normal hierarchical model) for 
+as a normal-normal hierarchical model) for
 two benchmark heterogeneity priors and
 the actual heterogeneity prior(s) specified.
-Applies the function \code{bayesmeta} from the package bayesmeta. 
+Applies the function \code{bayesmeta} from the package bayesmeta.
 %Also provides functions to evaluate marginal posterior distributions.
 %for computations.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
@@ -48,7 +48,7 @@ fit_models_RA(df, tau.prior = list(), scale.hn0 = 1/500,
 \details{
 The two heterogeneity benchmark priors used are
 introduced in Ott et al. (2021, Section 3.4),
-where they are denoted by 
+where they are denoted by
 HN0 and J.
 Note that "J" refers to Jeffreys reference prior,
 which is improper, but leads to a proper posterior if
@@ -72,25 +72,26 @@ are suitable for effects mu on the log odds (ratio) scale.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-A list containing the model fits, namely 
- a list of lists of class \code{bayesmeta}. 
+A list containing the model fits, namely
+ a list of lists of class \code{bayesmeta}.
 This list has length \eqn{2} + length(\code{tau.prior})
 and contains one element for each heterogeneity prior considered
 (2 benchmark priors and the actual priors specified),
 in the following order:
-\item{fit.hn0 }{ for the half-normal HN0 benchmark prior with scale parameter \code{scale.hn0}}
-\item{fit.j }{ for Jeffreys (improper) reference prior}
-\item{fit.actual_1 }{ for the first prior in the list \code{tau.prior} (if specified)}
-\item{fit.actual_2 }{ for the second prior in the list \code{tau.prior} (if specified)}
-\item{...}{ ...}
-\item{fit.actual_n }{ for the nth prior in the list \code{tau.prior} (if specified)}
+  \item{fit.hn0 }{ for the half-normal HN0 benchmark prior with scale parameter \code{scale.hn0}}
+  \item{fit.j }{ for Jeffreys (improper) reference prior}
+  \item{fit.actual_1 }{ for the first prior in the list \code{tau.prior} (if specified)}
+  \item{fit.actual_2 }{ for the second prior in the list \code{tau.prior} (if specified)}
+  \item{...}{ ...}
+  \item{fit.actual_n }{ for the nth prior in the list \code{tau.prior} (if specified)}
 See \code{\link[bayesmeta]{bayesmeta}} in the package bayesmeta
 for information on the structure of the lists of class \code{bayesmeta}.
 }
 \references{
-Ott, M., Plummer, M., Roos, M. How vague is vague? How informative is
-informative? Reference analysis for
-Bayesian meta-analysis. Manuscript revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). How vague is vague?
+How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine} \bold{40}, 4505--4521.
+\doi{10.1002/sim.9076}
 }
 \section{Warning }{
 If \code{fit_models_RA} ends with an error or warning,
@@ -105,7 +106,7 @@ for the anti-conservative benchmark prior.
 \code{\link{fit_models_RA_5bm}}
 }
 \examples{
-# for aurigular acupuncture (AA) data set 
+# for aurigular acupuncture (AA) data set
 data(aa)  % example with running time > 5 sec.
 \donttest{# one actual half-normal and the "DuMouchel" heterogeneity prior
 # it takes a few seconds to run this function

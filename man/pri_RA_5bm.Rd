@@ -22,7 +22,7 @@ pri_RA_5bm(df, tau.prior=list(function(x) dhalfnormal(x, scale=1)),
 \arguments{
 \item{df}{
     data frame with one column "y" containing the (transformed) effect estimates for the individual studies and
-    one column "sigma" containing the standard errors of these estimates. 
+    one column "sigma" containing the standard errors of these estimates.
 %%     ~~Describe \code{x} here~~
 }
 \item{tau.prior}{
@@ -34,13 +34,13 @@ pri_RA_5bm(df, tau.prior=list(function(x) dhalfnormal(x, scale=1)),
 \item{m_J}{
     parameter value \eqn{m=m_J} of the SGC(\eqn{m}) prior,
     which induces a marignal posterior for the heterogeneity standard deviation tau   close to Jeffreys reference posterior (wrt the Hellinger distance).
-    If set to \code{NA} (the default), this parameter is computed 
+    If set to \code{NA} (the default), this parameter is computed
     using the function \code{m_j_sgc} and some other parameters.
 }
 \item{M_J}{
     parameter value \eqn{M=M_J} of the SIGC(\eqn{M}) prior,
     which induces a marignal posterior for the heterogeneity standard deviation tau   close to Jeffreys reference posterior (wrt the Hellinger distance).
-    If set to \code{NA} (the default), this parameter is computed 
+    If set to \code{NA} (the default), this parameter is computed
     using the function \code{M_j_sigc} and some other parameters.
 }
 \item{upper.J}{
@@ -54,14 +54,14 @@ pri_RA_5bm(df, tau.prior=list(function(x) dhalfnormal(x, scale=1)),
 \item{m_inf}{
     parameter value \eqn{m=m_{inf}} of the SGC(\eqn{m}) prior,
 such that the median relative latent model complexity (RLMC) is close to 0.
-  If set to \code{NA} (the default), this parameter is computed 
+  If set to \code{NA} (the default), this parameter is computed
     using the function \code{m_inf_sgc}, such that the median RLMC is
     approximately equal to \code{rlmc0}.
 }
 \item{M_inf}{
     parameter value \eqn{M=M_{inf}} of the SIGC(\eqn{M}) prior,
 such that the median relative latent model complexity (RLMC) is close to 1.
-  If set to \code{NA} (the default), this parameter is computed 
+  If set to \code{NA} (the default), this parameter is computed
     using the function \code{M_inf_sigc}, such that the median RLMC is
     approximately equal to \code{rlmc1}.
 }
@@ -83,7 +83,7 @@ such that the median relative latent model complexity (RLMC) is close to 1.
 \details{
 The methodology for a prior reference analysis and the four proper heterogeneity benchmark priors used are
 introduced in the Supplementary Material of Ott et al. (2021, Sections 2.5 and 2.6).
-There, these four benchmark priors are denoted by 
+There, these four benchmark priors are denoted by
 SGC(\eqn{m_J}), SIGC(\eqn{M_J}), SGC(\eqn{m_{inf}}) and SIGC(\eqn{M_{inf}}).
 %%  ~~ If necessary, more details than the description above ~~
 }
@@ -100,26 +100,31 @@ heterogeneity priors
 and has \eqn{4} columns and \eqn{n} rows,
 where \eqn{n} is the number of actual heterogeneity priors specified,
 i.e. the length of the list \code{tau.prior}.
- 
+
 The columns of the matrix give the following Hellinger distance estimates
 between two heterogeneity priors
 (from left to right):
-\item{H(SGC(m_inf), pri_act) }{ benchmark prior SGC(m_inf) and actual prior}
-\item{H(SIGC(M_J), pri_act) }{ benchmark prior SIGC(M_J) and actual prior}
-\item{H(SGC(m_J), pri_act) }{ benchmark prior SGC(m_J) and actual prior}
-\item{H(SIGC(M_inf), pri_act) }{ benchmark prior SIGC(M_inf) and actual prior}
+\describe{
+  \item{\code{H(SGC(m_inf), pri_act)}:}{ benchmark prior SGC(m_inf) and actual prior}
+  \item{\code{H(SIGC(M_J), pri_act)}:}{ benchmark prior SIGC(M_J) and actual prior}
+  \item{\code{H(SGC(m_J), pri_act)}:}{ benchmark prior SGC(m_J) and actual prior}
+  \item{\code{H(SIGC(M_inf), pri_act)}:}{ benchmark prior SIGC(M_inf) and actual prior}
+}
 Each row corresponds to one actual heterogeneity prior
 specified in the list \code{tau.prior}, in the same order
 as in that list. Thus, the row names are:
-\item{pri_act_1 }{ first actual prior in \code{tau.prior}}
-\item{pri_act_2 }{ second actual prior in \code{tau.prior}}
-\item{...}{}
-\item{pri_act_n }{ nth (last) actual prior in \code{tau.prior}}
+\describe{
+  \item{\code{pri_act_1}:}{ first actual prior in \code{tau.prior}}
+  \item{\code{pri_act_2}:}{ second actual prior in \code{tau.prior}}
+  \item{...}{}
+  \item{\code{pri_act_n}:}{ nth (last) actual prior in \code{tau.prior}}
+}
 }
 \references{
-Ott, M., Plummer, M., Roos, M. Supplementary Material:
-How vague is vague? How informative is informative? Reference analysis for 
-Bayesian meta-analysis. Revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). Supplementary Material:
+How vague is vague? How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine}.
+\doi{10.1002/sim.9076}
 }
 \section{Warning }{
 This function may take several minutes to run if the parameter \code{m_J} and/or \code{M_J}
@@ -138,7 +143,7 @@ data(aa)
 pri_RA_5bm(df=aa, tau.prior=list(function(t)dhalfnormal(t, scale=1),
                                  "DuMouchel"))
                                  }
-# computation is much faster if m_J and M_J are specified  
+# computation is much faster if m_J and M_J are specified
 pri_RA_5bm(df=aa, tau.prior=list(function(t)dhalfnormal(t, scale=1),
                                  "DuMouchel"),
            m_J = 1.35, M_J = 1.3)

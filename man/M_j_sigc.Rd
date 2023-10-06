@@ -46,9 +46,10 @@ See the Supplementary Material of Ott et al. (2021, Section 2.6) for details.
 Parameter value \eqn{M=M_J} of the SIGC(M) prior. Real number > 1.
 }
 \references{
-Ott, M., Plummer, M., Roos, M. Supplementary Material:
-How vague is vague? How informative is informative? Reference analysis for 
-Bayesian meta-analysis. Revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). Supplementary Material:
+How vague is vague? How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine}.
+\doi{10.1002/sim.9076}
 }
 \section{Warning }{
 This function takes several minutes to run if the desired precision

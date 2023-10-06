@@ -22,7 +22,7 @@ post_RA_3bm(df, tau.prior=list(function(x) dhalfnormal(x, scale=1)),
 \arguments{
 \item{df}{
     data frame with one column "y" containing the (transformed) effect estimates for the individual studies and
-    one column "sigma" containing the standard errors of these estimates. 
+    one column "sigma" containing the standard errors of these estimates.
 %%     ~~Describe \code{x} here~~
 }
 \item{tau.prior}{
@@ -37,14 +37,14 @@ post_RA_3bm(df, tau.prior=list(function(x) dhalfnormal(x, scale=1)),
 \item{m_inf}{
     parameter value \eqn{m=m_{inf}} of the SGC(\eqn{m}) prior,
 such that the median relative latent model complexity (RLMC) is close to 0.
-  If set to \code{NA} (the default), this parameter is computed 
+  If set to \code{NA} (the default), this parameter is computed
     using the function \code{m_inf_sgc}, such that the median RLMC is
     approximately equal to \code{rlmc0}.
 }
 \item{M_inf}{
     parameter value \eqn{M=M_{inf}} of the SIGC(\eqn{M}) prior,
 such that the median relative latent model complexity (RLMC) is close to 1.
-  If set to \code{NA} (the default), this parameter is computed 
+  If set to \code{NA} (the default), this parameter is computed
     using the function \code{M_inf_sigc}, such that the median RLMC is
     approximately equal to \code{rlmc1}.
 }
@@ -66,7 +66,7 @@ such that the median relative latent model complexity (RLMC) is close to 1.
 \details{
 The three posterior benchmarks used are
 introduced in the Supplementary Material of Ott et al. (2021, Sections 2.2.1 and 2.5, see also Section 3.4 in Ott at al. (2021) for Jeffreys reference prior),
-where they are denoted by 
+where they are denoted by
 \eqn{po_{m_{inf}}(\Psi)}, \eqn{po_{J}(\Psi)} and \eqn{po_{M_{inf}}(\Psi)}.
 Here, \eqn{\Psi \in \{ \mu, \tau, \theta_1, ..., \theta_k, \theta_{new}  \}}
 denotes the parameter of interest in the NNHM,
@@ -98,38 +98,44 @@ and has \eqn{3} columns and \eqn{n*(k+3)} rows,
 where \eqn{n}=length(\code{tau.prior}) is the number of actual heterogeneity priors specified
 and \eqn{k} is the number of studies in the meta-analysis data set
 (so that there are \eqn{k+3} parameters of interest).
- 
+
 The columns of the matrix give the following Hellinger distance estimates
 between two marginal posteriors (for the parameter of interest \eqn{\Psi} varying with rows)
 induced by the following two heterogeneity priors
 (from left to right):
-\item{H(po_{m_inf}, po_act) }{ benchmark prior SGC(m_inf) and actual prior}
-\item{H(po_J, po_act) }{ Jeffreys reference prior \eqn{\pi_J} and actual prior}
-\item{H(po_{M_inf}, po_act) }{ benchmark prior SIGC(M_inf) and actual prior}
+\describe{
+  \item{\code{H(po_{m_inf}, po_act)}:}{ benchmark prior SGC(m_inf) and actual prior}
+  \item{\code{H(po_J, po_act)}:}{ Jeffreys reference prior \eqn{\pi_J} and actual prior}
+  \item{\code{H(po_{M_inf}, po_act)}:}{ benchmark prior SIGC(M_inf) and actual prior}
+}
 The actual heterogenity prior and the parameter of interest \eqn{\Psi} vary
 with the rows in the following order:
-\item{mu, pri_act_1 }{ \eqn{\Psi=\mu} and first actual prior in \code{tau.prior}}
-\item{mu, pri_act_2 }{ \eqn{\Psi=\mu} and second actual prior in \code{tau.prior}}
-\item{... }{ }
-\item{mu, pri_act_n }{ \eqn{\Psi=\mu} and nth actual prior in \code{tau.prior}}
-\item{tau, pri_act_1 }{ \eqn{\Psi=\tau} and first actual prior in \code{tau.prior}}
-\item{... }{ }
-\item{tau, pri_act_n }{ \eqn{\Psi=\tau} and nth actual prior}
-\item{theta_1, pri_act_1 }{ \eqn{\Psi=\theta_1} and first actual prior}
-\item{... }{ }
-\item{theta_k, pri_act_n }{ \eqn{\Psi=\theta_k} and nth actual prior}
-\item{theta_new, pri_act_1 }{ \eqn{\Psi=\theta_{new}} and first actual prior}
-\item{... }{ }
-\item{theta_new, pri_act_n }{ \eqn{\Psi=\theta_{new}} and nth actual prior}
+\describe{
+  \item{\code{mu, pri_act_1}:}{ \eqn{\Psi=\mu} and first actual prior in \code{tau.prior}}
+  \item{\code{mu, pri_act_2}:}{ \eqn{\Psi=\mu} and second actual prior in \code{tau.prior}}
+  \item{... }{ }
+  \item{\code{mu, pri_act_n}:}{ \eqn{\Psi=\mu} and nth actual prior in \code{tau.prior}}
+  \item{\code{tau, pri_act_1}:}{ \eqn{\Psi=\tau} and first actual prior in \code{tau.prior}}
+  \item{... }{ }
+  \item{\code{tau, pri_act_n}:}{ \eqn{\Psi=\tau} and nth actual prior}
+  \item{\code{theta_1, pri_act_1}:}{ \eqn{\Psi=\theta_1} and first actual prior}
+  \item{... }{ }
+  \item{\code{theta_k, pri_act_n}:}{ \eqn{\Psi=\theta_k} and nth actual prior}
+  \item{\code{theta_new, pri_act_1}:}{ \eqn{\Psi=\theta_{new}} and first actual prior}
+  \item{... }{ }
+  \item{\code{theta_new, pri_act_n}:}{ \eqn{\Psi=\theta_{new}} and nth actual prior}
+}
 }
 \references{
-Ott, M., Plummer, M., Roos, M. Supplementary Material:
-How vague is vague? How informative is informative? Reference analysis for 
-Bayesian meta-analysis. Revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). Supplementary Material:
+How vague is vague? How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine}.
+\doi{10.1002/sim.9076}
 
-Ott, M., Plummer, M., Roos, M. How vague is vague? How informative is
-informative? Reference analysis for
-Bayesian meta-analysis. Manuscript revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). How vague is vague?
+How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine} \bold{40}, 4505--4521.
+\doi{10.1002/sim.9076}
 }
 \section{Warnings }{
 A warning message will be displayed if one of the parameters \code{m_inf} or \code{M_inf}
@@ -142,7 +148,7 @@ numerical problems may occur in some cases, which may lead to implausible output
 Therefore, we generally recommend to double-check the results of the integral-based method using the moment-based method (\code{H.dist.method = "moment"}) - especially if the former results are implausibe. If large differences between the two methods are observed, we recommend to rely on the moment-based method unless a normal approximation of the involved densities is inappropriate.
 }
 \seealso{
-\code{\link{post_RA_fits}}, 
+\code{\link{post_RA_fits}},
 \code{\link{pri_RA_5bm}}
 }
 \examples{

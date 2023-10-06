@@ -11,7 +11,7 @@ Hellinger distance between marignal posterior densities of two bayesmeta fits
     for the selected parameter of interest.
     Offers the option to select between integral-based and approximate moment-based computation of Hellinger distances.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-} 
+}
 \usage{
 H_fits(fit1, fit2, parameter = "mu", individual = NA,
        method = "integral")
@@ -44,7 +44,7 @@ H_fits(fit1, fit2, parameter = "mu", individual = NA,
 \details{
 In the random effects model for meta-analysis, the parameter mu is the overall mean parameter, tau is the between-study (heterogeneity) standard deviation, theta_new is the predicted effect for a new study and theta_i is the random effect parameter for study i.
 
-If integral-based computation (\code{method = "integral"}) of Hellinger distances is selected (the default), numerical integration is applied to obtain the Hellinger distance between the two marginal posterior densities (by using the function \code{H}). 
+If integral-based computation (\code{method = "integral"}) of Hellinger distances is selected (the default), numerical integration is applied to obtain the Hellinger distance between the two marginal posterior densities (by using the function \code{H}).
 If moment-based computation (\code{method = "moment"}) is selected, the marginal densities are first approximated by normal densities with the same means and standard deviations and then the Hellinger distance between these normal densities can be obtained by an analytical formula (implemented in the function \code{H_normal}).
 %%  ~~ If necessary, more details than the description above ~~
 }
@@ -63,12 +63,12 @@ Therefore, we generally recommend to double-check the results of the integral-ba
 \examples{
 data(aa)  % example with running time > 5 sec.
 \donttest{ # fit under Jeffreys reference heterogeneity prior
-fit1 <- bayesmeta(y = aa[ , "y"], sigma = aa[, "sigma"], 
-                  mu.prior.mean = 0, mu.prior.sd = 4, 
+fit1 <- bayesmeta(y = aa[ , "y"], sigma = aa[, "sigma"],
+                  mu.prior.mean = 0, mu.prior.sd = 4,
                   tau.prior = "Jeffreys")
 # fit under standard half-normal heterogeneity prior
-fit2 <- bayesmeta(y = aa[ , "y"], sigma = aa[, "sigma"], 
-                  mu.prior.mean = 0, mu.prior.sd = 4, 
+fit2 <- bayesmeta(y = aa[ , "y"], sigma = aa[, "sigma"],
+                  mu.prior.mean = 0, mu.prior.sd = 4,
                   tau.prior = function(t) dhalfnormal(t, scale = 1))
 # Hellinger distance between the marginal posteriors for mu
 H_fits(fit1, fit2)

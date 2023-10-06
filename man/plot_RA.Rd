@@ -9,7 +9,7 @@ corresponding marginal posteriors
 }
 \description{
 Plots the proper half-normal benchmark heterogeneity prior proposed in Ott et al. (2021)
-and the corresponding marginal benchmark posteriors for different parameters in the 
+and the corresponding marginal benchmark posteriors for different parameters in the
 NNHM. Also displays the marginal Jeffreys reference posterior,
 which is induced by an improper reference prior.
 Displays the specified actual heterogeneity priors in \code{tau.prior}
@@ -19,9 +19,9 @@ and the corresponding marginal posteriors as well.
 \usage{
 plot_RA(df, tau.prior = list(),
         type = "pri.tau", improper.prior = NULL, show.sigma.i = FALSE,
-        xlim, ylim, legend = FALSE, 
-        pos.legend = "topright", legend.tau.prior = c(), 
-        xlab = NULL, bty = "o", 
+        xlim, ylim, legend = FALSE,
+        pos.legend = "topright", legend.tau.prior = c(),
+        xlab = NULL, bty = "o",
         scale.hn0 = 1/500, mu.mean = 0, mu.sd = 4)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -36,7 +36,7 @@ plot_RA(df, tau.prior = list(),
 }
 \item{type}{
     specifies if heterogeneity priors or marginal posterior densities for
-    a given parameter should be plotted. 
+    a given parameter should be plotted.
     Options are \code{"pri.tau"} for heterogeneity priors, \code{"post.mu"} for the marg. posterior of the main effect mu, \code{"post.tau"} for the marg. posterior of the heterogeneity tau and
     \code{"post.theta.new"} for the marg. posterior of the predicted effect theta_new in a new study.
 }
@@ -57,9 +57,9 @@ plot_RA(df, tau.prior = list(),
     logical. Specifies if a legend should be added to the plot. Defaults to \code{FALSE}.
 }
 \item{pos.legend}{
-    a character string specifing the position of the legend in the plot. 
+    a character string specifing the position of the legend in the plot.
     Options are all the keywords accepted by
-    the \code{legend} function in the graphics package, i.e. 
+    the \code{legend} function in the graphics package, i.e.
     \code{"bottomright"}, \code{"bottom"}, \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"top"}, \code{"topright"}, \code{"right"} and \code{"center"}.
 }
 \item{legend.tau.prior}{
@@ -76,7 +76,7 @@ plot_RA(df, tau.prior = list(),
     the type of box to be drawn around the legend. The allowed values are "o" (the default) and "n".
 }
 \item{scale.hn0}{
-  scale parameter of the half-normal benchmark prior (usually a small number to 
+  scale parameter of the half-normal benchmark prior (usually a small number to
   obtain an anti-conservative benchmark which has most of its probability mass close to 0).
   Defaults to 0.002.
 }
@@ -90,7 +90,7 @@ plot_RA(df, tau.prior = list(),
 \details{
 The two heterogeneity benchmark priors used are
 introduced in Ott et al. (2021, Section 3.4)
-and they are denoted by 
+and they are denoted by
 HN0 and J.
 Note that the latter Jeffreys reference prior J
 is improper, but leads to a proper posterior if
@@ -109,9 +109,10 @@ operating on model fits of class \code{bayesmeta}.
 No return value, produces graphical output only.
 }
 \references{
-Ott, M., Plummer, M., Roos, M. How vague is vague? How informative is
-informative? Reference analysis for
-Bayesian meta-analysis. Manuscript revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). How vague is vague?
+How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine} \bold{40}, 4505--4521.
+\doi{10.1002/sim.9076}
 }
 %\section{Warning }{
 %This function may take several minutes to run.
@@ -131,12 +132,12 @@ plot_RA(df=aa, tau.prior=list(function(t)dhalfnormal(t, scale=1),
                               function(t)dhalfcauchy(t, scale=1)),
         type="pri.tau", xlim=c(0,2), ylim=c(0,3), legend=TRUE,
         legend.tau.prior=c("HN(1)", "HC(1)"))
-          
+
 # marginal posterior for the effect mu
 plot_RA(df=aa, tau.prior=list(function(t)dhalfnormal(t, scale=1),
                               function(t)dhalfcauchy(t, scale=1)),
         type="post.mu", xlim=c(-1.5,2), ylim=c(0,3), legend=TRUE,
-        legend.tau.prior=c("HN(1)", "HC(1)"))   
+        legend.tau.prior=c("HN(1)", "HC(1)"))
         }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

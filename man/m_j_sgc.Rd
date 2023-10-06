@@ -19,7 +19,7 @@ m_j_sgc(df, upper=3, digits=2, mu.mean=0, mu.sd=4)
 \arguments{
 \item{df}{
     data frame with one column "y" containing the (transformed) effect estimates for the individual studies and
-    one column "sigma" containing the standard errors of these estimates. 
+    one column "sigma" containing the standard errors of these estimates.
 %%     ~~Describe \code{x} here~~
 }
 \item{upper}{
@@ -46,9 +46,10 @@ See the Supplementary Material of Ott et al. (2021, Section 2.6) for details.
 Parameter value \eqn{m=m_J} of the SGC(\eqn{m}) prior. Real number > 1.
 }
 \references{
-Ott, M., Plummer, M., Roos, M. Supplementary Material:
-How vague is vague? How informative is informative? Reference analysis for 
-Bayesian meta-analysis. Revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). Supplementary Material:
+How vague is vague? How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine}.
+\doi{10.1002/sim.9076}
 }
 \section{Warning }{
 This function takes several minutes to run if the desired precision

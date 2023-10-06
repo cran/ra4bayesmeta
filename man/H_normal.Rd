@@ -11,7 +11,7 @@ Approximate moment-based Hellinger distance computation between two probability 
     using a normal approximation and moment-matching.
     Applies a moment-based analytical formula, which is exact for normal densities.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-} 
+}
 \usage{
 H_normal(mean1, sd1, mean2, sd2)
 }
@@ -39,7 +39,7 @@ The Hellinger distance between two normal densities can be computed analytically
 Any density can be approximated to the first order by a normal distribution.
 Thus, this moment-based formula can also be applied to non-normal densities to obtain an approximate estimate of the Hellinger distance.
 This approximation relies on moment-matching, i.e. the non-normal densities are approximated by normal densities with the same means and standard deviations.
-See Roos et al. (2020), Section 3.3, for the formula and for additional information.
+See Roos et al. (2021), Section 3.3, for the formula and for additional information.
 
 Note that the Hellinger distance is invariant with respect to one-to-one transformations of both densities. For the between-study standard deviation \eqn{\tau}, the density of \eqn{log(\tau)} can be approximated by a normal density.
 %%  ~~ If necessary, more details than the description above ~~
@@ -48,7 +48,11 @@ Note that the Hellinger distance is invariant with respect to one-to-one transfo
 A real number in [0,1].
 }
 \references{
-Roos, M., Hunanyan, S., Bakka, H., Rue, H. Sensitivity and identification quantification by a relative latent model complexity perturbation in Bayesian meta-analysis. Manuscript revised for \emph{Biometrical Journal}. 2020.
+Roos, M., Hunanyan, S., Bakka, H., & Rue, H. (2021). Sensitivity and identification
+quantification by a relative latent model complexity perturbation
+in Bayesian meta-analysis.
+\emph{Biometrical Journal} \bold{63}, 1555--1574.
+\doi{10.1002/bimj.202000193}
 }
 \seealso{
 \code{\link{H}}

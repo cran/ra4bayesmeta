@@ -9,7 +9,7 @@ Calibration of the Hellinger distance
     By default (if \code{output="shift"}), this function returns
    the mean of a unit-variance normal distribution,
     such that the Hellinger distance between this distribution and
-    the standard normal distribution equals the given value. 
+    the standard normal distribution equals the given value.
     Offers the option to return the area of overlap (if \code{output="ao"}) between these two unit-variance
     normal distributions instead.
     Gives an intuitive interpretation of Hellinger distance values.
@@ -52,19 +52,20 @@ See Ott et al. (2021, Section 3.5) for more information on this area of overlap 
 A vector of means (if \code{output="shift"}) or areas of overlap (if \code{output="ao"}), respectively.
 }
 \references{
-Roos, M., Martins, T., Held, L., Rue, H. (2015). Sensitivity analysis for Bayesian hierarchical models. 
+Roos, M., Martins, T., Held, L., Rue, H. (2015). Sensitivity analysis for Bayesian hierarchical models.
 \emph{Bayesian Analysis} \bold{10(2)}, 321--349.
 \url{https://projecteuclid.org/euclid.ba/1422884977}
 
-Ott, M., Plummer, M., Roos, M. How vague is vague? How informative is
-informative? Reference analysis for
-Bayesian meta-analysis. Manuscript revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). How vague is vague?
+How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine} \bold{40}, 4505--4521.
+\doi{10.1002/sim.9076}
 }
 
 \examples{
-# calibration in terms of shifts 
+# calibration in terms of shifts
 cal_h_dist(h=c(0.1, 0.5, 0.9))
-# calibration in terms of areas of overlap 
+# calibration in terms of areas of overlap
 cal_h_dist(h=c(0.1, 0.5, 0.9), output="ao")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

@@ -11,7 +11,7 @@ Computes a table of posterior estimates and informativeness values
 for the marginal posterior distributions
 of different parameters in the NNHM
 induced by the actual heterogeneity priors specified in \code{tau.prior}.
-Also provides the same estimates for the 
+Also provides the same estimates for the
 posterior benchmarks proposed in Ott et al. (2021).
 %Hellinger distances between marginal posterior distributions
 %for different parameters in the NNHM
@@ -20,9 +20,9 @@ posterior benchmarks proposed in Ott et al. (2021).
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-post_RA(df, tau.prior = list(function(x) dhalfnormal(x, scale = 1)), 
-        show.re = FALSE, 
-        estimate = "median", ci.method = "central", 
+post_RA(df, tau.prior = list(function(x) dhalfnormal(x, scale = 1)),
+        show.re = FALSE,
+        estimate = "median", ci.method = "central",
         H.dist.method = "integral",
         scale.hn0 = 1/500, mu.mean = 0, mu.sd = 4)
 }
@@ -30,7 +30,7 @@ post_RA(df, tau.prior = list(function(x) dhalfnormal(x, scale = 1)),
 \arguments{
 \item{df}{
     data frame with one column "y" containing the (transformed) effect estimates for the individual studies and
-    one column "sigma" containing the standard errors of these estimates. 
+    one column "sigma" containing the standard errors of these estimates.
 %%     ~~Describe \code{x} here~~
 }
 \item{tau.prior}{
@@ -49,10 +49,10 @@ post_RA(df, tau.prior = list(function(x) dhalfnormal(x, scale = 1)),
     method for computation of 95\% credible intervals (CrIs). Either \code{"central"} for equal-tailed CrIs or \code{"shortest"} for shortest CrIs. Defaults to \code{"central"}.
 }
 \item{H.dist.method}{
-    method for computation of Hellinger distances between marginal posterior densities. Either \code{"integral"} for integral-based computation or \code{"moment"} for approximate moment-based calculation using a normal approximation. Defaults to \code{"integral"}. 
+    method for computation of Hellinger distances between marginal posterior densities. Either \code{"integral"} for integral-based computation or \code{"moment"} for approximate moment-based calculation using a normal approximation. Defaults to \code{"integral"}.
 }
 \item{scale.hn0}{
-  scale parameter of the half-normal benchmark prior (usually a small number to 
+  scale parameter of the half-normal benchmark prior (usually a small number to
   obtain an anti-conservative benchmark which has most of its probability mass close to 0).
   Defaults to 0.002.
 }
@@ -66,8 +66,8 @@ post_RA(df, tau.prior = list(function(x) dhalfnormal(x, scale = 1)),
 \details{
 The two posterior benchmarks used are
 introduced in Ott et al. (2021, Section 3.4),
-where they are denoted by 
-\eqn{po_{J}(\Psi)} and \eqn{po_{HN0}(\Psi)}. 
+where they are denoted by
+\eqn{po_{J}(\Psi)} and \eqn{po_{HN0}(\Psi)}.
 Here, \eqn{\Psi \in \{ \mu, \tau, \theta_1, ..., \theta_k, \theta_{new}  \}}
 denotes the parameter of interest in the NNHM,
 where \eqn{\theta_{i}} is the random effect in the \eqn{i}th study and
@@ -80,10 +80,10 @@ Note that Jeffreys reference posterior \eqn{po_{J}} is proper if
 there are at least two studies in the meta-analysis data set.
 It is based on the improper Jeffreys reference prior,
 which is minimally informative given the data.
-The computation of the informativeness values is described in 
+The computation of the informativeness values is described in
 Ott et al. (2021, Section 3.6).
 
-The absolute value of the signed informativeness quantifies how close the 
+The absolute value of the signed informativeness quantifies how close the
 actual posterior and the reference posterior \eqn{po_{J}} are.
 If the signed informativeness is negative, then the actual prior is anti-conservative  with respect to Jeffreys reference prior J (that is puts more weight on smaller values for \eqn{\tau} than J).
 If the signed informativeness is positive, then the actual prior is conservative  with respect to Jeffreys reference prior J (that is puts more weight on larger values for \eqn{\tau} than J).
@@ -110,17 +110,20 @@ HN0, J and FE denote the three benchmark priors introduced in Ott et al. (2021).
 \code{pri_act_i} denotes the i-th prior in the \code{tau.prior} list.
 
 The 6 columns provide the following estimates:
-\item{\code{estimate} }{ posterior point estimate (median or mean)}
-\item{\code{CrI_low} }{ lower limit of the 95\% credible interval}
-\item{\code{CrI_up} }{ upper limit of the 95\% credible interval}
-\item{\code{length_CrI} }{ length of the 95\% credible interval}
-\item{\code{H(po_HN0, po_act)} }{ Hellinger distance between the posterior benchmark \eqn{po_{HN0}(\Psi)} and the marginal posterior induced by the heterogeneity prior listed on the left, for the parameter \eqn{\Psi} listed on the left}
-\item{\code{signed_inf} }{ Signed informativeness, i.e. \eqn{sign(H(po_{HN0}, po_{act}) - H(po_{HN0}, po_{J})) H(po_{act}, po_{J})}, for the marginal posterior induced by the heterogeneity prior listed on the left, for the parameter \eqn{\Psi} listed on the left}
+\describe{
+  \item{\code{estimate}:}{ posterior point estimate (median or mean)}
+  \item{\code{CrI_low}:}{ lower limit of the 95\% credible interval}
+  \item{\code{CrI_up}:}{ upper limit of the 95\% credible interval}
+  \item{\code{length_CrI}:}{ length of the 95\% credible interval}
+  \item{\code{H(po_HN0, po_act)}:}{ Hellinger distance between the posterior benchmark \eqn{po_{HN0}(\Psi)} and the marginal posterior induced by the heterogeneity prior listed on the left, for the parameter \eqn{\Psi} listed on the left}
+  \item{\code{signed_inf}:}{ Signed informativeness, i.e. \eqn{sign(H(po_{HN0}, po_{act}) - H(po_{HN0}, po_{J})) H(po_{act}, po_{J})}, for the marginal posterior induced by the heterogeneity prior listed on the left, for the parameter \eqn{\Psi} listed on the left}
+}
 }
 \references{
-Ott, M., Plummer, M., Roos, M. How vague is vague? How informative is
-informative? Reference analysis for
-Bayesian meta-analysis. Manuscript revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). How vague is vague?
+How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine} \bold{40}, 4505--4521.
+\doi{10.1002/sim.9076}
 }
 \section{Warning }{
 If the integral-based method is used to compute Hellinger distances (\code{H.dist.method = "integral"}),
@@ -128,7 +131,7 @@ numerical problems may occur in some cases, which may lead to implausible output
 Therefore, we generally recommend to double-check the results of the integral-based method using the moment-based method (\code{H.dist.method = "moment"}) - especially if the former results are implausibe. If large differences between the two methods are observed, we recommend to rely on the moment-based method unless a normal approximation of the involved densities is inappropriate.
 }
 \seealso{
-\code{\link{post_RA_fits}}, 
+\code{\link{post_RA_fits}},
 \code{\link{post_RA_3bm}}
 }
 \examples{

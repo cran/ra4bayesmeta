@@ -9,7 +9,7 @@ Respiratory tract infections data
 Meta-analysis data set including 22 randomized, controlled clinical
 trials on the prevention of respiratory tract infections
 by selective decontamination of the digestive tract
-in intensive care unit patients. 
+in intensive care unit patients.
 The patients in the treated group received oral antibiotics, and those in the control groups received no prophylaxis.
 %%  ~~ A concise (1-5 lines) description of the dataset. ~~
 }
@@ -37,7 +37,7 @@ as described in Bodnar et al. (2017).
 %%  ~~ If necessary, more details than the __description__ above ~~
 }
 \source{
-Bodnar, O., Link, A., Arendacka, B., Possolo, A., Elster, C. (2017). Bayesian estimation in random effects meta-analysis using a non-informative prior. 
+Bodnar, O., Link, A., Arendacka, B., Possolo, A., Elster, C. (2017). Bayesian estimation in random effects meta-analysis using a non-informative prior.
 \emph{Statistics in Medicine} \bold{36}, 378--399.
 %%  ~~ reference to a publication or URL from which the data were obtained ~~
 }

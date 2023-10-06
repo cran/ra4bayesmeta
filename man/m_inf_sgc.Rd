@@ -10,7 +10,7 @@ relative latent model complexity (RLMC)
 Computes the parameter value \eqn{m=m_{inf}} of the SGC(\eqn{m}) prior,
 such that the relative latent model complexity (RLMC) with respect
 to the reference threshold is approximately \code{rlmc}.
-The reference threshold is chosen as the (1-\code{alpha})-quantile of the 
+The reference threshold is chosen as the (1-\code{alpha})-quantile of the
 SGC(\eqn{m_{inf}}) prior.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
@@ -40,9 +40,10 @@ on the data set considered.
 Parameter value \eqn{m=m_{inf}} of the SGC(\eqn{m}) prior. Real number > 1.
 }
 \references{
-Ott, M., Plummer, M., Roos, M. Supplementary Material:
-How vague is vague? How informative is informative? Reference analysis for 
-Bayesian meta-analysis. Revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). Supplementary Material:
+How vague is vague? How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine}.
+\doi{10.1002/sim.9076}
 }
 \seealso{
 \code{\link{M_inf_sigc}}

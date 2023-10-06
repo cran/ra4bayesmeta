@@ -9,8 +9,8 @@ corresponding marginal posteriors
 }
 \description{
 Plots the benchmark heterogeneity priors inducing the specified model fits \code{fits.bm}
-and the corresponding marginal benchmark posteriors for different parameters in the 
-NNHM. 
+and the corresponding marginal benchmark posteriors for different parameters in the
+NNHM.
 Also displays the actual heterogeneity priors inducing the specified actual model fits \code{fits.actual}
 and the corresponding marginal posteriors.
 All bayesmeta fits should be based on the same data set.
@@ -18,15 +18,15 @@ All bayesmeta fits should be based on the same data set.
 }
 \usage{
 plot_RA_fits(fits.actual, fits.bm, type="pri.tau", xlim, ylim,
-             legend=FALSE, pos.legend="topright", 
+             legend=FALSE, pos.legend="topright",
              legend.tau.prior=c(), bty="o",
-             col.actual=c("red","lightpink3","darkgreen","green", 
-                          "violetred")[1:length(fits.actual)], 
+             col.actual=c("red","lightpink3","darkgreen","green",
+                          "violetred")[1:length(fits.actual)],
              col.bm=c("cyan","black","blue","darkgray",
-                      "dodgerblue")[1:length(fits.bm)], 
-             lty.actual=rep(2, times=length(col.actual)), 
+                      "dodgerblue")[1:length(fits.bm)],
+             lty.actual=rep(2, times=length(col.actual)),
              lty.bm=rep(1, times=length(col.bm)),
-             lwd.actual=rep(2, times=length(col.actual)), 
+             lwd.actual=rep(2, times=length(col.actual)),
              lwd.bm=rep(2, times=length(col.bm)))
 }
 %- maybe also 'usage' for other objects documented here.
@@ -37,12 +37,12 @@ plot_RA_fits(fits.actual, fits.bm, type="pri.tau", xlim, ylim,
 }
 \item{fits.bm}{
     a list of model fits (max. 5 fits) of class bayesmeta, computed with
-    the \code{bayesmeta} function in the package bayesmeta. 
+    the \code{bayesmeta} function in the package bayesmeta.
     To be used as benchmarks.
 }
 \item{type}{
     specifies if heterogeneity priors or marginal posterior densities for
-    a given parameter should be plotted. 
+    a given parameter should be plotted.
     Options are \code{"pri.tau"} for heterogeneity priors, \code{"post.mu"} for the marg. posterior of the main effect mu, \code{"post.tau"} for the marg. posterior of the heterogeneity tau and
     \code{"post.theta.new"} for the marg. posterior of the predicted effect theta_new in a new study.
 }
@@ -56,9 +56,9 @@ plot_RA_fits(fits.actual, fits.bm, type="pri.tau", xlim, ylim,
     logical. Specifies if a legend should be added to the plot. Defaults to \code{FALSE}.
 }
 \item{pos.legend}{
-    a character string specifing the position of the legend in the plot. 
+    a character string specifing the position of the legend in the plot.
     Options are all the keywords accepted by
-    the \code{legend} function in the graphics package, i.e. 
+    the \code{legend} function in the graphics package, i.e.
     \code{"bottomright"}, \code{"bottom"}, \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"top"}, \code{"topright"}, \code{"right"} and \code{"center"}.
 }
 \item{legend.tau.prior}{
@@ -91,7 +91,7 @@ plot_RA_fits(fits.actual, fits.bm, type="pri.tau", xlim, ylim,
     vector of line type specifications for the lines representing the benchmark fits in
     \code{fits.bm}, in the same order as in that list.
     Vector of minimum length \code{length(fits.bm)}.
-}  
+}
   \item{lwd.actual}{
     numeric vector specifying the width of the lines representing the actual fits in
     \code{fits.actual}, in the same order as in that list.
@@ -115,7 +115,7 @@ plot_RA_fits(fits.actual, fits.bm, type="pri.tau", xlim, ylim,
 }
 \details{
 Two alternative suggestions for posterior benchmarks are provided
-in Ott et al. (2021, Section 3.4) and its Supplementary Material (Section 2.5) and they 
+in Ott et al. (2021, Section 3.4) and its Supplementary Material (Section 2.5) and they
 can be computed using the functions \code{fit_models_RA} and \code{fit_models_RA_5bm},
 respectively.
 }
@@ -123,17 +123,19 @@ respectively.
 No return value, produces graphical output only.
 }
 \references{
-Ott, M., Plummer, M., Roos, M. How vague is vague? How informative is
-informative? Reference analysis for
-Bayesian meta-analysis. Manuscript revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). How vague is vague?
+How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine} \bold{40}, 4505--4521.
+\doi{10.1002/sim.9076}
 
-Ott, M., Plummer, M., Roos, M. Supplementary Material:
-How vague is vague? How informative is informative? Reference analysis for 
-Bayesian meta-analysis. Revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). Supplementary Material:
+How vague is vague? How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine}.
+\doi{10.1002/sim.9076}
 }
 \seealso{
 \code{\link[bayesmeta]{bayesmeta}} in the package bayesmeta,
-\code{\link{fit_models_RA}}, \code{\link{plot_RA}} 
+\code{\link{fit_models_RA}}, \code{\link{plot_RA}}
 }
 \examples{
 # for aurigular acupuncture (AA) data set with two
@@ -151,16 +153,16 @@ fits.actual <- fits[3:4]
 
 # prior densities
 plot_RA_fits(fits.actual=fits.actual, fits.bm=fits.bm.pri,
-             type="pri.tau", xlim=c(0, 2), ylim=c(0, 3), 
+             type="pri.tau", xlim=c(0, 2), ylim=c(0, 3),
              legend=TRUE,
              legend.tau.prior=c("HN(1)", "HC(1)", "HN0"))
-          
+
 # marginal posterior for the effect mu
-plot_RA_fits(fits.actual=fits.actual, fits.bm=fits.bm.post, 
+plot_RA_fits(fits.actual=fits.actual, fits.bm=fits.bm.post,
              type="post.mu", xlim=c(-1.5, 1.5), ylim=c(0, 3),
              legend=TRUE,
              legend.tau.prior=c("HN(1)", "HC(1)",
-             "HN0", "J"))  
+             "HN0", "J"))
              }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

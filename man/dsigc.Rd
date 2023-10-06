@@ -6,7 +6,7 @@ Density function of the square-root inverse generalized conventional (SIGC) benc
 %%  ~~function to do ... ~~
 }
 \description{
-Density function of the SIGC distribution described in the Supplementary Material of Ott et al. (2021).   
+Density function of the SIGC distribution described in the Supplementary Material of Ott et al. (2021).
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -23,7 +23,7 @@ dsigc(x, M, C)
 %%     ~~Describe \code{x} here~~
 }
 \item{C}{
-   non-negative real number. 
+   non-negative real number.
 %%     ~~Describe \code{x} here~~
 }
 }
@@ -56,9 +56,10 @@ Berger, J. O., Deely, J. (1988). A Bayesian approach to ranking and selection of
 related means with alternatives to analysis-of-variance methodology. \emph{Journal of the
 American Statistical Association} \bold{83(402)}, 364--373.
 
-Ott, M., Plummer, M., Roos, M. Supplementary Material:
-How vague is vague? How informative is informative? Reference analysis for 
-Bayesian meta-analysis. Revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). Supplementary Material:
+How vague is vague? How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine}.
+\doi{10.1002/sim.9076}
 }
 \seealso{
 \code{\link{dsgc}}

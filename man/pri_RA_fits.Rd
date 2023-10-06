@@ -23,7 +23,7 @@ pri_RA_fits(fits.actual, fits.bm)
 }
 \item{fits.bm}{
     a list of model fits of class bayesmeta, computed with
-    the \code{bayesmeta} function in the package bayesmeta. 
+    the \code{bayesmeta} function in the package bayesmeta.
     To be used as benchmarks.
 }
 }
@@ -32,7 +32,7 @@ pri_RA_fits(fits.actual, fits.bm)
 %Ott et al. (2020), Section 2.6.
 Two alternative suggestions for benchmark priors are provided
 in Ott et al. (2021, Section 3.4) and its Supplementary Material (Sections 2.5 and 2.6).
-These benchmark priors and the corresponding fits 
+These benchmark priors and the corresponding fits
 can be computed using the functions \code{fit_models_RA} and \code{fit_models_RA_5bm},
 respectively.
 }
@@ -42,39 +42,45 @@ heterogeneity priors
 with \eqn{n.bm} columns and \eqn{n.act} rows,
 where \eqn{n.bm}=length(\code{fit.bms}) is the number of benchmark fits specified and
 \eqn{n.act}=length(\code{fit.actual}) the number of actual fits specified.
- 
+
 The columns of the matrix give the following Hellinger distance estimates
 between two heterogeneity priors
 (from left to right):
-\item{H(pri_bm_1, pri_act) }{ first benchmark prior bm_1 inducing the fit \code{fits.bm[[1]]} and actual prior}
-\item{H(pri_bm_2, pri_act) }{ second benchmark prior bm_2 inducing the fit \code{fits.bm[[2]]} and actual prior}
-\item{... }{ ... }
-\item{H(pri_bm_n.bm, pri_act) }{ last benchmark prior bm_n.bm inducing the fit \code{fits.bm[[n.bm]]} and actual prior}
+\describe{
+    \item{\code{H(pri_bm_1, pri_act)}:}{ first benchmark prior bm_1 inducing the fit \code{fits.bm[[1]]} and actual prior}
+    \item{\code{H(pri_bm_2, pri_act)}:}{ second benchmark prior bm_2 inducing the fit \code{fits.bm[[2]]} and actual prior}
+    \item{... }{ ... }
+    \item{\code{H(pri_bm_n.bm, pri_act)}:}{ last benchmark prior bm_n.bm inducing the fit \code{fits.bm[[n.bm]]} and actual prior}
+}
 Each row correspond to one actual heterogeneity prior
 inducing one of the fits in \code{fits.actual}, in the same order
 as in that list. Thus, the row names are:
-\item{pri_act_1 }{ first actual prior in \code{tau.prior}}
-\item{pri_act_2 }{ second actual prior in \code{tau.prior}}
-\item{...}{ ...}
-\item{pri_act_n }{ nth (last) actual prior in \code{tau.prior}}
+\describe{
+    \item{\code{pri_act_1}:}{ first actual prior in \code{tau.prior}}
+    \item{\code{pri_act_2}:}{ second actual prior in \code{tau.prior}}
+    \item{...}{ ...}
+    \item{\code{pri_act_n}:}{ nth (last) actual prior in \code{tau.prior}}
+}
 }
 \references{
-Ott, M., Plummer, M., Roos, M. Supplementary Material:
-How vague is vague? How informative is informative? Reference analysis for 
-Bayesian meta-analysis. Revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). Supplementary Material:
+How vague is vague? How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine}.
+\doi{10.1002/sim.9076}
 
-Ott, M., Plummer, M., Roos, M. How vague is vague? How informative is
-informative? Reference analysis for
-Bayesian meta-analysis. Manuscript revised for \emph{Statistics in Medicine}. 2021.
+Ott, M., Plummer, M., Roos, M. (2021). How vague is vague?
+How informative is informative? Reference analysis for
+Bayesian meta-analysis. \emph{Statistics in Medicine} \bold{40}, 4505--4521.
+\doi{10.1002/sim.9076}
 }
 \seealso{
 \code{\link[bayesmeta]{bayesmeta}} in the package bayesmeta,
 \code{\link{fit_models_RA_5bm}},
 \code{\link{post_RA_fits}},
-\code{\link{pri_RA_5bm}} 
+\code{\link{pri_RA_5bm}}
 }
 \examples{
-# for aurigular acupuncture (AA) data set 
+# for aurigular acupuncture (AA) data set
 data(aa)
 \donttest{# compute the model fits  % function with long running time
 # two actual half-normal heterogeneity priors
